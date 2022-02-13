@@ -46,7 +46,7 @@ class _TestFileState extends State<TestFile> {
               height: MediaQuery.of(context).size.height * 0.5,
               width: MediaQuery.of(context).orientation == Orientation.portrait
                   ? boardWidth
-                  : 300,
+                  : MediaQuery.of(context).size.width * 0.4,
               child: GridView.builder(
                 physics: NeverScrollableScrollPhysics(),
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

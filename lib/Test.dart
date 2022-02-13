@@ -41,37 +41,41 @@ class _TestFileState extends State<TestFile> {
           const SizedBox(
             height: 10.0,
           ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.5,
-            width: boardWidth,
-            child: GridView.builder(
-              physics: NeverScrollableScrollPhysics(),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  mainAxisExtent: MediaQuery.of(context).size.height * 0.13,
-                  crossAxisCount: 3,
-                  mainAxisSpacing: 10,
-                  crossAxisSpacing: 10),
-              itemCount: 9,
-              padding: EdgeInsets.all(16.0),
-              itemBuilder: (ctx, int i) {
-                return InkWell(
-                  onTap: () {
-                    //we need add value and toggle player X , O
-                    //and we need apply click when field is empty
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: colors.primaryColor,
-                      borderRadius: BorderRadius.circular(16.0),
-                    ),
-                    child: Center(
-                      child: Text(
-                        'X',
+          Center(
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height * 0.5,
+              width: MediaQuery.of(context).orientation == Orientation.portrait
+                  ? boardWidth
+                  : 300,
+              child: GridView.builder(
+                physics: NeverScrollableScrollPhysics(),
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    mainAxisExtent: MediaQuery.of(context).size.height * 0.13,
+                    crossAxisCount: 3,
+                    mainAxisSpacing: 10,
+                    crossAxisSpacing: 10),
+                itemCount: 9,
+                padding: EdgeInsets.all(16.0),
+                itemBuilder: (ctx, int i) {
+                  return InkWell(
+                    onTap: () {
+                      //we need add value and toggle player X , O
+                      //and we need apply click when field is empty
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: colors.primaryColor,
+                        borderRadius: BorderRadius.circular(16.0),
+                      ),
+                      child: Center(
+                        child: Text(
+                          'X',
+                        ),
                       ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
           ),
           // Start Create button Reload
